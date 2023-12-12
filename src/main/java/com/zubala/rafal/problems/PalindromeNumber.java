@@ -1,6 +1,9 @@
 package com.zubala.rafal.problems;
 
-// https://leetcode.com/problems/palindrome-number/description/
+/**
+ * @see <a href="https://leetcode.com/problems/palindrome-number/description/">Problem description</a>
+ */
+
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
         if (x < 0) {

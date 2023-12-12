@@ -1,14 +1,14 @@
 package com.zubala.rafal.problems;
 
 /**
- * @see <a href="https://leetcode.com/problems/move-zeroes/description/">Problem description</a>
+ * @see <a href="https://leetcode.com/problems/remove-element/description/">Problem description</a>
  */
-public class MoveZeros {
-    public void moveZeroes(int[] nums) {
+public class RemoveElement {
+    public int removeElement(int[] nums, int val) {
+        var length = nums.length;
         int left=0, right=0;
-
-        while(right < nums.length) {
-            if (nums[right] != 0) {
+        while(right < length) {
+            if (nums[right] != val) {
                 if (left != right) {
                     int tmp = nums[right];
                     nums[right] = nums[left];
@@ -18,5 +18,6 @@ public class MoveZeros {
             }
             right++;
         }
+        return left;
     }
 }

@@ -4,10 +4,10 @@ package com.zubala.rafal.problems;
  * @see <a href="https://leetcode.com/problems/reverse-string/">Problem description</a>
  */
 public class StringReverse {
-    public char[] reverseString(char[] s) {
+    public void reverseString(char[] s) {
         var length = s.length;
         if (length <= 1) {
-            return s;
+            return;
         }
         int i =0 ;
         while (i < length/2) {
@@ -16,6 +16,5 @@ public class StringReverse {
             s[i] = tmp;
             i++;
         }
-        return s;
     }
 }

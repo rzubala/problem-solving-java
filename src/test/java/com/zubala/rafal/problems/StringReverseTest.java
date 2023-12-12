@@ -2,7 +2,7 @@ package com.zubala.rafal.problems;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class StringReverseTest {
 
@@ -12,10 +12,12 @@ class StringReverseTest {
     void reverseString() {
         char[] input1 = {'h', 'e', 'l', 'l', 'o'};
         char[] expected1 = {'o', 'l', 'l', 'e', 'h'};
-        assertEquals(String.valueOf(expected1), String.valueOf(stringReverse.reverseString(input1)));
+        stringReverse.reverseString(input1);
+        assertArrayEquals(expected1, input1);
 
         char[] input2 = {'H', 'a', 'n', 'n', 'a', 'h'};
         char[] expected2 = {'h', 'a', 'n', 'n', 'a', 'H'};
-        assertEquals(String.valueOf(expected2), String.valueOf(stringReverse.reverseString(input2)));
+        stringReverse.reverseString(input2);
+        assertArrayEquals(expected2, input2);
     }
 }

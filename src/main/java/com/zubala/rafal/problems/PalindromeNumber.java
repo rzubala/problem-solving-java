@@ -1,7 +1,6 @@
 package com.zubala.rafal.problems;
 
-import java.util.stream.IntStream;
-
+// https://leetcode.com/problems/palindrome-number/description/
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
         if (x < 0) {

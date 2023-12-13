@@ -5,6 +5,18 @@ package com.zubala.rafal.problems;
  */
 public class RemoveDuplicates2 {
     public int removeDuplicates(int[] nums) {
-        return 0;
+        int length = nums.length;
+        if (length <= 2) {
+            return length;
+        }
+        int left=2, right=2;
+        while (right < length) {
+            if (nums[right] != nums[left - 2]) {
+                nums[left] = nums[right];
+                left++;
+            }
+            right++;
+        }
+        return left;
     }
 }

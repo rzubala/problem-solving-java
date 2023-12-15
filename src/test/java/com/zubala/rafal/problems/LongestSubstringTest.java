@@ -18,5 +18,8 @@ class LongestSubstringTest {
 
         input = "pwwkew";
         assertEquals(3, longestSubstring.lengthOfLongestSubstring(input));
+
+        input = "qrsvbspk";
+        assertEquals(5, longestSubstring.lengthOfLongestSubstring(input));
     }
 }

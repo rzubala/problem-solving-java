@@ -2,6 +2,8 @@ https://www.youtube.com/watch?v=EM8IgIIiOdY&ab_channel=PowerCouple
 
 1. Top k largest elements: https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/
 2. Sliding window: https://leetcode.com/problems/longest-substring-without-repeating-characters/solutions/1812/share-my-java-solution-using-hashset/
-3. Combination Sum Backtracking: https://replit.com/@replitshare2/CombinationSumBacktracking#main.py
+3. Combination Sum Backtracking:
+https://replit.com/@replitshare2/CombinationSumBacktracking#main.py
+https://favtutor.com/blogs/combination-sum
 4. Combination Sum Dynamic Programming: https://replit.com/@replitshare2/CombinationSumDP#main.py
 5. DFS and BFS: https://www.youtube.com/watch?v=pcKY4hjDrxk&ab_channel=AbdulBari

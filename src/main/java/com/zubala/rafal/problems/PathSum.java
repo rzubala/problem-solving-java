@@ -9,7 +9,7 @@ import java.util.List;
  * @see <a href="https://leetcode.com/problems/path-sum/">Problem description</a>
  */
 public class PathSum {
-    public boolean hasPathSum(TreeNode root, int targetSum) {
+    public boolean hasPathSumBFS(TreeNode root, int targetSum) {
         if (root == null) {
             return false;
         }
@@ -37,5 +37,28 @@ public class PathSum {
             }
         }
         return false;
+    }
+
+    public boolean hasPathSumDFS(TreeNode root, int targetSum) {
+        return hasPathSum(root, 0, targetSum);
+    }
+
+    private boolean hasPathSum(TreeNode node, int acc, int target) {
+        if (node == null) {
+            return false;
+        }
+        int nodeSum = acc + node.val;
+        if (node.left == null && node.right == null) {
+            return nodeSum == target;
+        }
+        boolean hasLeft = false;
+        if (node.left != null) {
+            hasLeft = hasPathSum(node.left, nodeSum, target);
+        }
+        boolean hasRight = false;
+        if (node.right != null) {
+            hasRight = hasPathSum(node.right, nodeSum, target);
+        }
+        return hasLeft | hasRight;
     }
 }

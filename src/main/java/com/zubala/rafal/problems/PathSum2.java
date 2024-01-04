@@ -2,16 +2,14 @@ package com.zubala.rafal.problems;
 
 import com.zubala.rafal.problems.model.TreeNode;
 
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * @see <a href="https://leetcode.com/problems/path-sum-ii/description/">Problem description</a>
  */
 public class PathSum2 {
-    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+    public List<List<Integer>> pathSumBFS(TreeNode root, int targetSum) {
         List<List<Integer>> results = new LinkedList<>();
         if (root == null) {
             return results;
@@ -43,5 +41,30 @@ public class PathSum2 {
             paths.removeFirst();
         }
         return results;
+    }
+
+    public List<List<Integer>> pathSumDFS(TreeNode root, int targetSum) {
+        List<List<Integer>> results = new LinkedList<>();
+        if (root == null) {
+            return results;
+        }
+        pathSumInternal(root, targetSum, new LinkedList<Integer>(), results);
+        return results;
+    }
+
+    private void pathSumInternal(TreeNode node, int targetSum, List<Integer> path, List<List<Integer>> result) {
+        path.add(node.val);
+        TreeNode left = node.left;
+        if (left != null) {
+           pathSumInternal(left, targetSum, path, result);
+        }
+        TreeNode right = node.right;
+        if (right != null) {
+            pathSumInternal(right, targetSum, path, result);
+        }
+        if (left == null && right == null && path.stream().mapToInt(Integer::intValue).sum() == targetSum) {
+            result.add(new LinkedList<>(path));
+        }
+        path.remove(path.size()-1);
     }
 }

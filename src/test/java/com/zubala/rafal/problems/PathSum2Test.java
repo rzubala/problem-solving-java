@@ -11,7 +11,7 @@ class PathSum2Test {
     private final PathSum2 pathSum2 = new PathSum2();
     @Test
     public void testPathSum2() {
-        Integer[] input1 = { 5,4,8,11,null,13,4,7,2,null,null,null,1 };
+        Integer[] input1 = { 5,4,8,11,null,13,4,7,2,null,null,5,1 };
         List<List<Integer>> result1 = pathSum2.pathSum(buildBinaryTree(input1), 22);
         assertNotNull(result1);
         assertEquals(result1.size(), 2);

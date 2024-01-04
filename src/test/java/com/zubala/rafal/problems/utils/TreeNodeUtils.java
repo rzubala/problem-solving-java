@@ -21,20 +21,20 @@ public class TreeNodeUtils {
     }
 
     public static TreeNode buildBinaryTree(Integer[] input) {
-        List<TreeNode> stack = new LinkedList<>();
+        List<TreeNode> queue = new LinkedList<>();
         boolean left = true;
         TreeNode root = null;
         for (Integer i : input) {
-            if (stack.isEmpty()) {
+            if (queue.isEmpty()) {
                 TreeNode node = new TreeNode(i);
-                stack.add(node);
+                queue.add(node);
                 root = node;
                 continue;
             }
             if (i != null) {
-                TreeNode parent = stack.getFirst();
+                TreeNode parent = queue.getFirst();
                 TreeNode current = new TreeNode(i);
-                stack.add(current);
+                queue.add(current);
                 if (left) {
                     parent.left = current;
                 } else {
@@ -42,7 +42,7 @@ public class TreeNodeUtils {
                 }
             }
             if (!left) {
-                stack.removeFirst();
+                queue.removeFirst();
             }
             left = !left;
         }

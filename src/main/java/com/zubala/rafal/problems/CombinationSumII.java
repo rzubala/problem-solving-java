@@ -27,13 +27,16 @@ public class CombinationSumII {
             return;
         }
         if (target == 0) {
-           result.add(new LinkedList<>(tmpList));
-           return;
+            result.add(new LinkedList<>(tmpList));
+            return;
         }
-        for (int i=start;i<candidates.size();i++) {
+        for (int i = start; i < candidates.size(); i++) {
             Integer val = candidates.get(i);
+            if (i > start && val.equals(candidates.get(i - 1))) {
+                continue;
+            }
             tmpList.add(val);
-            backtrack(candidates, target - val, start + 1, tmpList, result);
+            backtrack(candidates, target - val, i + 1, tmpList, result);
             tmpList.removeLast();
         }
     }

@@ -4,6 +4,9 @@ import com.zubala.rafal.problems.model.TreeNode;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
+import java.util.Queue;
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.stream.Collectors;
 
 public class TreeNodeUtils {
@@ -21,7 +24,8 @@ public class TreeNodeUtils {
     }
 
     public static TreeNode buildBinaryTree(Integer[] input) {
-        List<TreeNode> queue = new LinkedList<>();
+        int length = Optional.ofNullable(input).map(a -> a.length).filter(l -> l >= 1).orElse(1);
+        ArrayBlockingQueue<TreeNode> queue = new ArrayBlockingQueue<>(length);
         boolean left = true;
         TreeNode root = null;
         for (Integer i : input) {
@@ -32,7 +36,7 @@ public class TreeNodeUtils {
                 continue;
             }
             if (i != null) {
-                TreeNode parent = queue.getFirst();
+                TreeNode parent = queue.peek();
                 TreeNode current = new TreeNode(i);
                 queue.add(current);
                 if (left) {
@@ -42,7 +46,7 @@ public class TreeNodeUtils {
                 }
             }
             if (!left) {
-                queue.removeFirst();
+                queue.poll();
             }
             left = !left;
         }

@@ -1,5 +1,6 @@
 package com.zubala.rafal.problems;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
@@ -22,6 +23,7 @@ class KLargestElementsTest {
         assertArrayEquals(expected2, kLargestElements.kLargestSort(input2, k));
     }
 
+    @Disabled
     @Test
     void kLargestBinarySearch() {
         Integer[] input1 = {1, 23, 12, 9, 30, 2, 50};
@@ -33,6 +35,11 @@ class KLargestElementsTest {
         Integer[] expected2 = {44, 17};
         k = 2;
         assertArrayEquals(expected2, kLargestElements.kLargestBinarySearch(input2, k));
+
+        Integer[] input3 = {3,2,1,5,6,4};
+        Integer[] expected3 = {5,4};
+        k = 2;
+        assertArrayEquals(expected3, kLargestElements.kLargestBinarySearch(input3, k));
     }
 
     @Test

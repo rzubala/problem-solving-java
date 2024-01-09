@@ -1,16 +1,12 @@
 package com.zubala.rafal.problems;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.*;
 
 
 /**
- * @see <a href="https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/">Problem description</a>
  * @see <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Problem description</a>
+ * @see <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/solutions/3906260/100-3-approaches-video-heap-quickselect-sorting/">Problem description</a>
+ * @see <a href="https://www.geeksforgeeks.org/k-largestor-smallest-elements-in-an-array/">Problem description</a>
  */
 public class KLargestElements {
     public Integer[] kLargestSort(Integer[] arr, int k) {
@@ -19,19 +15,19 @@ public class KLargestElements {
     }
 
     public int findKLargestIntArray(int[] nums, int k) {
-        int low = IntStream.of(nums).min().getAsInt();
-        int high = IntStream.of(nums).max().getAsInt();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        for (int i = 0; i < k; i++) {
+            minHeap.offer(nums[i]);
+        }
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-            long count = IntStream.of(nums).filter(i -> i > mid).count();
-            if (count >= k) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
+        for (int i = k; i < nums.length; i++) {
+            if (nums[i] > minHeap.peek()) {
+                minHeap.poll();
+                minHeap.offer(nums[i]);
             }
         }
-        return high;
+
+        return minHeap.peek();
     }
 
     private int findKLargest(Integer[] arr, int k) {

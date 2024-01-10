@@ -20,5 +20,10 @@ class KTopFrequentElementsTest {
         int[] result2 = kTopFrequentElements.topKFrequent(nums2, 1);
         int[] expected2 = {1};
         assertArrayEquals(expected2, result2);
+
+        int[] nums3 = {1,2};
+        int[] result3 = kTopFrequentElements.topKFrequent(nums3, 2);
+        int[] expected3 = {1,2};
+        assertArrayEquals(expected3, result3);
     }
 }

@@ -21,5 +21,9 @@ class ContainsDuplicatesIITest {
         int[] nums3 = {1,2,3,1,2,3};
         boolean res3 = containsDuplicatesII.containsNearbyDuplicate(nums3, 2);
         assertFalse(res3);
+
+        int[] nums4 = {1,2,1};
+        boolean res4 = containsDuplicatesII.containsNearbyDuplicate(nums4, 0);
+        assertFalse(res4);
     }
 }

@@ -1,5 +1,7 @@
 package com.zubala.rafal.problems;
 
+import com.zubala.rafal.problems.model.ListNode;
+import com.zubala.rafal.problems.utils.ListNodeUtils;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,19 +12,20 @@ class RemoveLinkedListElementsTest {
 
     @Test
     void removeElements() {
-        /*
-Example 1:
+        assertTrue(ListNodeUtils.compare(new int[]{1, 2, 3, 4}, new int[]{1, 2, 3, 4}));
+        assertFalse(ListNodeUtils.compare(new int[]{1, 2, 3, 4}, new int[]{1, 2, 3}));
+        assertFalse(ListNodeUtils.compare(new int[]{1, 2, 3, 4}, new int[]{1, 2, 3, 5}));
 
-Input: head = [1,2,6,3,4,5,6], val = 6
-Output: [1,2,3,4,5]
-Example 2:
+        ListNode head1 = ListNodeUtils.buildList(new int[]{1, 2, 6, 3, 4, 5, 6});
+        ListNode res1 = removeLinkedListElements.removeElements(head1, 6);
+        assertTrue(ListNodeUtils.compare(ListNodeUtils.buildList(new int[]{1, 2, 3, 4, 5}), res1));
 
-Input: head = [], val = 1
-Output: []
-Example 3:
+        ListNode head2 = ListNodeUtils.buildList(new int[]{});
+        ListNode res2 = removeLinkedListElements.removeElements(head2, 1);
+        assertTrue(ListNodeUtils.compare(ListNodeUtils.buildList(new int[]{}), res2));
 
-Input: head = [7,7,7,7], val = 7
-Output: []
-         */
+        ListNode head3 = ListNodeUtils.buildList(new int[]{7,7,7,7});
+        ListNode res3 = removeLinkedListElements.removeElements(head3, 7);
+        assertTrue(ListNodeUtils.compare(ListNodeUtils.buildList(new int[]{}), res3));
     }
 }

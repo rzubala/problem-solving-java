@@ -7,6 +7,26 @@ import com.zubala.rafal.problems.model.ListNode;
  */
 public class RemoveLinkedListElements {
     public ListNode removeElements(ListNode head, int val) {
-        return null;
+        if (head == null) {
+            return null;
+        }
+        ListNode it = head;
+        ListNode newHead = null;
+        ListNode previous = null;
+        while (it != null) {
+            if (it.val != val) {
+                if (newHead == null) {
+                    newHead = it;
+                } else {
+                    previous.next = it;
+                }
+                previous = it;
+            }
+            it = it.next;
+        }
+        if (previous != null) {
+            previous.next = null;
+        }
+        return newHead;
     }
 }
